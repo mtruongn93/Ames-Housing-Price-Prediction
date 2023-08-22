@@ -14609,7 +14609,7 @@ The main objective of this project is to build a robust predictive model that ca
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h3>
+<h1 style="color:red">Table of Contents</h1>
 </div>
 </div>
 </div>
@@ -14621,6 +14621,7 @@ The main objective of this project is to build a robust predictive model that ca
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
+<li><a href="#Feature-Descriptions">Feature Descriptions</a></li>
 <li><a href="#Data-Cleaning">Data Cleaning</a><ul>
 <li><a href="#Remove-Unnecessary-Columns-and-Edit-Column-Names">Remove Unnecessary Columns and Edit Column Names</a></li>
 <li><a href="#Handle-Skewness-and-Linearity-Assumption">Handle Skewness and Linearity Assumption</a></li>
@@ -14635,7 +14636,344 @@ The main objective of this project is to build a robust predictive model that ca
 <li><a href="#Elastic-Net-Regression">Elastic Net Regression</a></li>
 </ul>
 </li>
+<li><a href="#Conclusion">Conclusion</a>    </li>
 </ul>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 style="color:red">Features Descriptions</h1><table>
+<thead><tr>
+<th>Feature</th>
+<th>Short Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MSSubClass</td>
+<td>Type of dwelling involved in the sale</td>
+</tr>
+<tr>
+<td>MSZoning</td>
+<td>General zoning classification of the sale</td>
+</tr>
+<tr>
+<td>LotFrontage</td>
+<td>Linear feet of street connected to property</td>
+</tr>
+<tr>
+<td>LotArea</td>
+<td>Lot size in square feet</td>
+</tr>
+<tr>
+<td>Street</td>
+<td>Type of road access to property</td>
+</tr>
+<tr>
+<td>Alley</td>
+<td>Type of alley access to property</td>
+</tr>
+<tr>
+<td>LotShape</td>
+<td>General shape of property</td>
+</tr>
+<tr>
+<td>LandContour</td>
+<td>Flatness of the property</td>
+</tr>
+<tr>
+<td>Utilities</td>
+<td>Type of utilities available</td>
+</tr>
+<tr>
+<td>LotConfig</td>
+<td>Lot configuration</td>
+</tr>
+<tr>
+<td>LandSlope</td>
+<td>Slope of property</td>
+</tr>
+<tr>
+<td>Neighborhood</td>
+<td>Physical locations within Ames city limits</td>
+</tr>
+<tr>
+<td>Condition1</td>
+<td>Proximity to various conditions (1)</td>
+</tr>
+<tr>
+<td>Condition2</td>
+<td>Proximity to various conditions (2)</td>
+</tr>
+<tr>
+<td>BldgType</td>
+<td>Type of dwelling</td>
+</tr>
+<tr>
+<td>HouseStyle</td>
+<td>Style of dwelling</td>
+</tr>
+<tr>
+<td>OverallQual</td>
+<td>Rates the overall material and finish of the house</td>
+</tr>
+<tr>
+<td>OverallCond</td>
+<td>Rates the overall condition of the house</td>
+</tr>
+<tr>
+<td>YearBuilt</td>
+<td>Original construction date</td>
+</tr>
+<tr>
+<td>YearRemodAdd</td>
+<td>Remodel date (same as construction date if no remodeling)</td>
+</tr>
+<tr>
+<td>RoofStyle</td>
+<td>Type of roof</td>
+</tr>
+<tr>
+<td>RoofMatl</td>
+<td>Roof material</td>
+</tr>
+<tr>
+<td>Exterior1st</td>
+<td>Exterior covering on house</td>
+</tr>
+<tr>
+<td>Exterior2nd</td>
+<td>Exterior covering on house (if more than one material)</td>
+</tr>
+<tr>
+<td>MasVnrType</td>
+<td>Masonry veneer type</td>
+</tr>
+<tr>
+<td>MasVnrArea</td>
+<td>Masonry veneer area in square feet</td>
+</tr>
+<tr>
+<td>ExterQual</td>
+<td>Evaluates the quality of the material on the exterior</td>
+</tr>
+<tr>
+<td>ExterCond</td>
+<td>Evaluates the present condition of the material exterior</td>
+</tr>
+<tr>
+<td>Foundation</td>
+<td>Type of foundation</td>
+</tr>
+<tr>
+<td>BsmtQual</td>
+<td>Evaluates the height of the basement</td>
+</tr>
+<tr>
+<td>BsmtCond</td>
+<td>Evaluates the general condition of the basement</td>
+</tr>
+<tr>
+<td>BsmtExposure</td>
+<td>Refers to walkout or garden level walls</td>
+</tr>
+<tr>
+<td>BsmtFinType1</td>
+<td>Rating of basement finished area (type 1)</td>
+</tr>
+<tr>
+<td>BsmtFinSF1</td>
+<td>Type 1 finished square feet</td>
+</tr>
+<tr>
+<td>BsmtFinType2</td>
+<td>Rating of basement finished area (type 2)</td>
+</tr>
+<tr>
+<td>BsmtFinSF2</td>
+<td>Type 2 finished square feet</td>
+</tr>
+<tr>
+<td>BsmtUnfSF</td>
+<td>Unfinished square feet of basement area</td>
+</tr>
+<tr>
+<td>TotalBsmtSF</td>
+<td>Total square feet of basement area</td>
+</tr>
+<tr>
+<td>Heating</td>
+<td>Type of heating</td>
+</tr>
+<tr>
+<td>HeatingQC</td>
+<td>Heating quality and condition</td>
+</tr>
+<tr>
+<td>CentralAir</td>
+<td>Central air conditioning</td>
+</tr>
+<tr>
+<td>Electrical</td>
+<td>Electrical system</td>
+</tr>
+<tr>
+<td>1stFlrSF</td>
+<td>First Floor square feet</td>
+</tr>
+<tr>
+<td>2ndFlrSF</td>
+<td>Second floor square feet</td>
+</tr>
+<tr>
+<td>LowQualFinSF</td>
+<td>Low quality finished square feet (all floors)</td>
+</tr>
+<tr>
+<td>GrLivArea</td>
+<td>Above grade (ground) living area square feet</td>
+</tr>
+<tr>
+<td>BsmtFullBath</td>
+<td>Basement full bathrooms</td>
+</tr>
+<tr>
+<td>BsmtHalfBath</td>
+<td>Basement half bathrooms</td>
+</tr>
+<tr>
+<td>FullBath</td>
+<td>Full bathrooms above grade</td>
+</tr>
+<tr>
+<td>HalfBath</td>
+<td>Half baths above grade</td>
+</tr>
+<tr>
+<td>Bedroom</td>
+<td>Bedrooms above grade (does NOT include basement bedrooms)</td>
+</tr>
+<tr>
+<td>Kitchen</td>
+<td>Kitchens above grade</td>
+</tr>
+<tr>
+<td>KitchenQual</td>
+<td>Kitchen quality</td>
+</tr>
+<tr>
+<td>TotRmsAbvGrd</td>
+<td>Total rooms above grade (does not include bathrooms)</td>
+</tr>
+<tr>
+<td>Functional</td>
+<td>Home functionality</td>
+</tr>
+<tr>
+<td>Fireplaces</td>
+<td>Number of fireplaces</td>
+</tr>
+<tr>
+<td>FireplaceQu</td>
+<td>Fireplace quality</td>
+</tr>
+<tr>
+<td>GarageType</td>
+<td>Garage location</td>
+</tr>
+<tr>
+<td>GarageYrBlt</td>
+<td>Year garage was built</td>
+</tr>
+<tr>
+<td>GarageFinish</td>
+<td>Interior finish of the garage</td>
+</tr>
+<tr>
+<td>GarageCars</td>
+<td>Size of garage in car capacity</td>
+</tr>
+<tr>
+<td>GarageArea</td>
+<td>Size of garage in square feet</td>
+</tr>
+<tr>
+<td>GarageQual</td>
+<td>Garage quality</td>
+</tr>
+<tr>
+<td>GarageCond</td>
+<td>Garage condition</td>
+</tr>
+<tr>
+<td>PavedDrive</td>
+<td>Paved driveway</td>
+</tr>
+<tr>
+<td>WoodDeckSF</td>
+<td>Wood deck area in square feet</td>
+</tr>
+<tr>
+<td>OpenPorchSF</td>
+<td>Open porch area in square feet</td>
+</tr>
+<tr>
+<td>EnclosedPorch</td>
+<td>Enclosed porch area in square feet</td>
+</tr>
+<tr>
+<td>3SsnPorch</td>
+<td>Three season porch area in square feet</td>
+</tr>
+<tr>
+<td>ScreenPorch</td>
+<td>Screen porch area in square feet</td>
+</tr>
+<tr>
+<td>PoolArea</td>
+<td>Pool area in square feet</td>
+</tr>
+<tr>
+<td>PoolQC</td>
+<td>Pool quality</td>
+</tr>
+<tr>
+<td>Fence</td>
+<td>Fence quality</td>
+</tr>
+<tr>
+<td>MiscFeature</td>
+<td>Miscellaneous feature not covered in other categories</td>
+</tr>
+<tr>
+<td>MiscVal</td>
+<td>$Value of miscellaneous feature</td>
+</tr>
+<tr>
+<td>MoSold</td>
+<td>Month Sold (MM)</td>
+</tr>
+<tr>
+<td>YrSold</td>
+<td>Year Sold (YYYY)</td>
+</tr>
+<tr>
+<td>SaleType</td>
+<td>Type of sale</td>
+</tr>
+<tr>
+<td>SaleCondition</td>
+<td>Condition of sale</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
@@ -18832,6 +19170,48 @@ Fireplaces
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 style="color:red">Conclusion</h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In this analysis, we aimed to predict house prices in Ames using a comprehensive dataset from Kaggle. The journey involved multiple steps, from data cleaning and preprocessing to feature engineering, outlier handling, and model building. Below is a summary of the key stages we went through:</p>
+<ol>
+<li><p>Data Cleaning and Preprocessing
+The initial dataset was rich with information, but it contained missing values, categorical variables, and numerical attributes that required attention. We carefully examined each feature, identified missing data, and applied suitable imputation strategies. Categorical variables were transformed into a numerical format using techniques like MultiLabelBinarizer, ensuring compatibility with machine learning algorithms.</p>
+</li>
+<li><p>Handling Skewness
+Skewness in numerical features can impact the performance of predictive models. To address this, we planned to perform a Box-Cox transformation on skewed numerical features, aiming to make the data more symmetric and normally distributed. This transformation was crucial to enhance the predictive power of our models and ensure better convergence during training.</p>
+</li>
+<li><p>Outlier Detection and Treatment
+Outliers can distort the modeling process and affect the reliability of predictions. We employed visualization techniques and statistical methods to detect outliers in the dataset. Identified outliers were either removed or transformed to reduce their impact on the models. Careful consideration was given to preserving the integrity of the data while dealing with extreme values.</p>
+</li>
+<li><p>Imputation
+Missing data can introduce bias and limit the effectiveness of machine learning models. We applied appropriate imputation techniques to fill in missing values, ensuring that the resulting dataset was complete and suitable for training. Mean imputation and most frequent imputation were used depending on the nature of the missing data.</p>
+</li>
+<li><p>Modeling
+After data preprocessing, we split the dataset into training and testing sets and standardized the features using StandardScaler to ensure consistent scaling for our models. We explored various regression techniques, including Lasso regression, to predict house prices. Lasso regression allowed us to select relevant features and penalize less important ones, thereby preventing overfitting.</p>
+</li>
+</ol>
+<p>In conclusion, our journey to predict house prices in Ames involved a meticulous process of data cleaning, preprocessing, and transformation. We handled skewness, addressed outliers, imputed missing data, and leveraged regression modeling to create predictive models. The success of this project lies in the collaboration of data science techniques and domain knowledge to extract valuable insights from complex datasets. The models developed can serve as powerful tools for estimating house prices, aiding real estate professionals and potential buyers in making informed decisions.</p>
+<p>Through these comprehensive steps, we demonstrated the importance of a structured approach to data analysis and modeling, emphasizing the significance of each stage in producing accurate and reliable predictions.</p>
+
+</div>
+</div>
+</div>
 </div>
 </body>
 
